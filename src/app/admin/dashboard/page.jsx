@@ -24,9 +24,6 @@ export default function Dashboard() {
         setTecnicos(tecnicosData);
         setTickets(ticketsData);
 
-        console.log("Clientes:", clientesData.length);
-        console.log("Técnicos:", tecnicosData.length);
-        console.log("Tickets:", ticketsData.length);
       } catch (error) {
         console.error('Erro ao carregar dados:', error);
       }
