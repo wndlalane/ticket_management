@@ -61,7 +61,7 @@ export default function Dashboard() {
         <div className="flex flex-col items-center max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
           <FontAwesomeIcon icon={faUsers} className="text-4xl text-gray-600 dark:text-gray-300 mb-2" />
           <h5 className="text-2xl font-bold text-gray-900 dark:text-white">Clientes</h5>
-          <p className="font-normal text-gray-700 dark:text-gray-400">{clientes.length}</p>
+          <p className="font-normal text-gray-700 dark:text-gray-400">{clientes ? clientes.length : 0}</p>
         </div>
       </div>
 
@@ -69,7 +69,7 @@ export default function Dashboard() {
         <div className="flex flex-col items-center max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
           <FontAwesomeIcon icon={faTools} className="text-4xl text-gray-600 dark:text-gray-300 mb-2" />
           <h5 className="text-2xl font-bold text-gray-900 dark:text-white">Técnicos</h5>
-          <p className="font-normal text-gray-700 dark:text-gray-400">{tecnicos.length}</p>
+          <p className="font-normal text-gray-700 dark:text-gray-400">{tecnicos ? tecnicos.length: 0}</p>
         </div>
       </div>
 
@@ -77,7 +77,7 @@ export default function Dashboard() {
         <div className="flex flex-col items-center max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
           <FontAwesomeIcon icon={faTicketAlt} className="text-4xl text-gray-600 dark:text-gray-300 mb-2" />
           <h5 className="text-2xl font-bold text-gray-900 dark:text-white">Tickets</h5>
-          <p className="font-normal text-gray-700 dark:text-gray-400">{tickets.length}</p>
+          <p className="font-normal text-gray-700 dark:text-gray-400">{tickets? tickets.length: 0}</p>
         </div>
       </div>
     </div>
