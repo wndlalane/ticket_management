@@ -1,11 +1,8 @@
 import Image from 'next/image'
+import { redirect } from 'next/navigation'
 
 
 
 export default function Home() {
-  return (
-    <div >
-      <h1 className="text-3xl font-bold underline">Hello, Next.js!</h1>
-    </div>
-  )
+  redirect('/login')
 }
