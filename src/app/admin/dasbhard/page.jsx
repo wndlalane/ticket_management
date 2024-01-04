@@ -1,10 +1,9 @@
 'use client'
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUsers, faTools, faTicketAlt } from '@fortawesome/free-solid-svg-icons';
 import api from "@/services/api";
 
-const useState = typeof window !== 'undefined' ? require('react').useState : null;
 
 export default function Dashboard() {
 
@@ -44,7 +43,7 @@ export default function Dashboard() {
                 console.log(data.length)
             } catch (error) {
                 console.error('Erro ao carregar lista de tecnicos:', error);
-                // Em caso de erro, definimos tecnicos como um array vazio
+                // Em caso de erro, definimos tickets como um array vazio
                 setTecnicos([]);
             }
         };

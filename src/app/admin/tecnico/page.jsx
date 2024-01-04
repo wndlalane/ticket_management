@@ -1,9 +1,7 @@
 'use client'
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import api from "@/services/api";
 
-// Verifique se estamos no lado do tecnico antes de importar e usar useState
-const useState = typeof window !== 'undefined' ? require('react').useState : null;
 
 export default function Tecnicos() {
     const [tecnicos, setTecnicos] = useState ? useState([]) : [];
