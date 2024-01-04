@@ -4,7 +4,7 @@ import api from "@/services/api";
 
 
 export default function Tecnicos() {
-    const [tecnicos, setTecnicos] = useState ? useState([]);
+    const [tecnicos, setTecnicos] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
