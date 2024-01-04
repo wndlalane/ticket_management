@@ -1,7 +1,13 @@
 import { Inter } from 'next/font/google'
 import './globals.css'
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import '@fortawesome/fontawesome-svg-core/styles.css'; 
 
 const inter = Inter({ subsets: ['latin'] })
+
+
+library.add(fas);
 
 export const metadata = {
   title: 'Create Next App',
