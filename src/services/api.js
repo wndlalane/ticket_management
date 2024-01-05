@@ -75,7 +75,7 @@ const api = {
     }
   },
 
-  ticketsPost: async (ticketData) => {
+  ticketsPost: async ({ ticketData }) => {
     try {
       const response = await axios.post(`${API_BASE_URL}/tickets`, ticketData, {
         headers: {
@@ -87,6 +87,20 @@ const api = {
       throw error.response.data;
     }
   },
+
+  atualizarStatusTicket: async ({ ticketId, tecnico_id, status }) => {
+    try {
+      const response = await axios.put(`${API_BASE_URL}/tickets/${ticketId}/status`, { tecnico_id, status }, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      return response.data;
+    } catch (error) {
+      throw error.response.data;
+    }
+  },
+
 };
 
 export default api;

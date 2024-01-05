@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import api from "@/services/api";
 import '@/styles/global.css'
@@ -11,6 +11,22 @@ export default function LoginForm() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
 
+  useEffect(() => {
+
+    const storedData = localStorage.getItem('authentication');
+    if (storedData) {
+      const authentication = JSON.parse(storedData);
+      if (authentication.cliente) {
+        router.push('/admin/ticket')
+      } else if (authentication.tecnico) {
+        router.push('/admin/dashboard');
+      }
+    } else {
+      console.log('Nenhum dado de autenticação encontrado.');
+    }
+
+  }, [])
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -20,7 +36,11 @@ export default function LoginForm() {
       if (response.success) {
         localStorage.setItem('authentication', JSON.stringify(response.authentication));
         localStorage.setItem('token', JSON.stringify(response.authentication.token));
-        router.push('/admin/dashboard');
+        if (response.authentication.cliente) {
+          router.push('/admin/ticket');
+        } else {
+          router.push('/admin/dashboard');
+        }
       } else {
         setError(response.message);
       }
