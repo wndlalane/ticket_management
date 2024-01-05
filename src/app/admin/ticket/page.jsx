@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import api from '@/services/api';
 
 export default function Tickets() {
+
     const [tickets, setTickets] = useState([]);
 
     const [modalOpen, setModalOpen] = useState(false);
@@ -11,9 +12,20 @@ export default function Tickets() {
 
     // Função para buscar a lista de tickets da API
     const fetchTickets = async () => {
+
         try {
             const token = localStorage.getItem('token');
-            const data = await api.ticketsGet(token);
+            let data = [];
+            const storedData = localStorage.getItem('authentication');
+
+            const authentication = JSON.parse(storedData);
+            if (authentication.cliente) {
+                data = await api.usuarioTicketsGet({ usuario_id: authentication.id }, token)
+
+            } else {
+                data = await api.ticketsGet(token);
+
+            }
             setTickets(data);
         } catch (error) {
             console.error('Erro ao carregar lista de tickets:', error);

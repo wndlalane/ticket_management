@@ -18,8 +18,8 @@ export default function LoginForm() {
       const response = await api.login({ email, password });
 
       if (response.success) {
-        // Autenticação bem-sucedida
-        localStorage.setItem('token', response.access_token);
+        localStorage.setItem('authentication', JSON.stringify(response.authentication));
+        localStorage.setItem('token', JSON.stringify(response.authentication.token));
         router.push('/admin/dashboard');
       } else {
         setError(response.message);

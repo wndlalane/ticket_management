@@ -66,6 +66,15 @@ const api = {
     }
   },
 
+  usuarioTicketsGet: async ({ usuario_id }) => {
+    try {
+      const response = await axios.get(`${API_BASE_URL}/usuario/${usuario_id}/tickets`);
+      return response.data;
+    } catch (error) {
+      throw error.response.data;
+    }
+  },
+
   ticketsPost: async (ticketData) => {
     try {
       const response = await axios.post(`${API_BASE_URL}/tickets`, ticketData, {
